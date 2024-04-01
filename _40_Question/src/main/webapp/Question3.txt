@@ -1,0 +1,11 @@
+1. MemberAddServlet 클래스 변경
+	- MemberDao의 insert()를 사용
+	
+2. MemberUpdateServlet 클래스 변경
+	- MemberDao의 selectOne()과 update()를 사용
+	
+3. MemberDeleteServlet 클래스 변경
+	- MemberDao의 delete()를 사용
+	
+4. LogInServlet 클래스 변경
+	- MemberDao의 ()를 사용
