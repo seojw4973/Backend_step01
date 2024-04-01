@@ -25,7 +25,7 @@ public class MemberDao {
 	private String strUpdate=
 			"UPDATE members SET email=?, mname=?, mod_date=NOW() WHERE mno=?";
 	private String strExist=
-			"SELECT mname, email FROM members WHERE email=? AND pws=?";
+			"SELECT mname, email FROM members WHERE email=? AND pwd=?";
 	
 	public void setConnection(Connection connection) {
 		this.connection= connection;
