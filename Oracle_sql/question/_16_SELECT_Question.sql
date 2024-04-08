@@ -4,6 +4,11 @@ SELECT professor.pno, course.pno, pname, cname
  FROM professor, course
  WHERE professor.pno=course.pno AND professor.pno='1001';
 
+-- SELECT p.pno, pname, cno, cname
+-- FROM professor p, course c
+-- WHERE p.pno=c.pno
+-- AND pname='송강';
+
 -- 2) 화학 관련 과목을 강의하는 교수의 명단을 검색한다
 SELECT professor.pno, course.pno, pname, cname
  FROM professor, course
@@ -42,6 +47,11 @@ SELECT major, syear, sname, cname, result
 SELECT major, syear, sname, cname
  FROM course, score, student
  WHERE course.cno = score.cno AND student.sno = score.sno AND major = '화학' AND syear=1;
+
+-- SELECT DISTINCT cname
+-- FROM student s, course c, score r
+-- WHERE s.sno=r.sno AND c.cno=r.cno
+-- AND major='화학' AND syear=1; 
 
 -- 9) 유기화학 과목의 평가점수가 F인 학생의 명단을 검색한다
 SELECT cname, major, sname, result, grade

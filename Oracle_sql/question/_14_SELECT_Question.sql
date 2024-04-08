@@ -38,4 +38,5 @@ SELECT *
  FROM student
  WHERE major IN('화학', '물리') AND syear IN(1, 2)
  ORDER BY avr;
+ --ORDER BY major, syear, avr DESC;
 
