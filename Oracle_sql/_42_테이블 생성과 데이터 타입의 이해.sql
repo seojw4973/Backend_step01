@@ -83,16 +83,16 @@
        DATE
     5) 이진타입
        RAW, LONG RAW, BLOB, BFILE
-    6) ROWID 타입
+    6) ROWID 타입(순서, 위치정보)
        ROWID
      
      VARCHAR2, NUMBER, DATE 이 3가지 자료형이
      99%이상 사용된다.
      
   4. 데이터 타입 상세
-    1) VARCHAR2(n) : 가변길이 문자타입
+    1) VARCHAR2(n) : 가변길이 문자타입(오라클만 varchar2, 다른 DB는 varchar)
                     (1 <= n <= 4000 byte)
-    2) CHAR(n): 고정길이 문자타입
+    2) CHAR(n): 고정길이 문자타입, 요즘은 잘 사용 X
                 (1 <= n <= 4000 byte)
     3) NUMBER(n, p): 숫자 타입
                     n은 전체 자리수
@@ -131,8 +131,36 @@
 
 
 --테이블을 생성하고 데이터를 입력 확인한다
-  -- sys 계정의 소유 테이블
 
+CREATE TABLE board(
+  no NUMBER,
+  name VARCHAR2(50),
+  sub VARCHAR2(100),
+  content VARCHAR2(4000),
+  hdate DATE DEFAULT sysdate
+);
+
+DESC board;
+
+SELECT * FROM board;
+
+-- sys 계정의 소유 테이블
+SELECT table_name, column_name, 
+    data_type, data_length
+    FROM user_tab_columns   
+    WHERE table_name = 'BOARD';
+
+INSERT INTO board(no, hdate)
+ VALUES(1, '2024/04/05');
+
+INSERT INTO board(no)
+ VALUES(2);
+
+
+SELECT * FROM board;
+
+SELECT no, TO_CHAR(hdate, 'YYYY-MM-DD HH24:MI:SS')
+ FROM board;
 
 
 
